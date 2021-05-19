@@ -1,6 +1,6 @@
 {
   "name": "common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "summary": "A short description of common.",
   "description": "common files for every project",
   "homepage": "https://github.com/madhusudhanivy/common",
@@ -13,10 +13,10 @@
   },
   "source": {
     "git": "https://github.com/madhusudhanivy/common.git",
-    "tag": "1.0.0"
+    "tag": "1.0.1"
   },
   "platforms": {
-    "ios": "11.0"
+    "ios": "10.0"
   },
   "source_files": "Source/**/*.{swift, c,h,m,mm,cpp,a,framework,pch}",
   "swift_versions": "5.0",
@@ -34,9 +34,6 @@
     ],
     "ReachabilitySwift": [
       "~> 4.0"
-    ],
-    "Toast-Swift": [
-
     ]
   },
   "swift_version": "5.0"

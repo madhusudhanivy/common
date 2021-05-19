@@ -9,13 +9,13 @@
 import Foundation
 import MBProgressHUD
 
-internal final class ActivityIndicator {
+public final class ActivityIndicator {
     
-    static let shared = ActivityIndicator()
+    public static let shared = ActivityIndicator()
     
     // MARK: -
     /// Method for showing activity indicator.
-    func showActivity(viewController: UIViewController) {
+    public func showActivity(viewController: UIViewController) {
         
         DispatchQueue.main.async(execute: {
             MBProgressHUD.showAdded(to: viewController.view, animated: true)
@@ -25,7 +25,7 @@ internal final class ActivityIndicator {
     }
 
     /// Method for hiding activity indicator.
-    func hideActivity(viewController: UIViewController) {
+    public func hideActivity(viewController: UIViewController) {
         
         DispatchQueue.main.async(execute: {
             MBProgressHUD.hide(for: viewController.view, animated: false)

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'common'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A short description of common.'
 
 # This description is used to generate tags and improve search results.
@@ -33,7 +33,7 @@ common files for every project
   s.source_files = 'Source/**/*.{swift, c,h,m,mm,cpp,a,framework,pch}'
   s.swift_version = '5.0'
       s.platforms = {
-          "ios": "11.0"
+          "ios": "10.0"
       }
       
    s.resource_bundles = {
@@ -47,6 +47,5 @@ common files for every project
   s.dependency 'IQKeyboardManagerSwift'
   s.dependency 'MBProgressHUD'
   s.dependency 'ReachabilitySwift', '~> 4.0'
-  s.dependency 'Toast-Swift'
   
 end

@@ -8,14 +8,13 @@
 
 import Foundation
 import UIKit
-import Toast_Swift
 
-internal final class AlertManager {
+public final class AlertManager {
     
-    static let shared = AlertManager()
+    public static let shared = AlertManager()
     private var presenter: UIViewController?
 
-    @objc func displayValidationAlert(title: String = "Alert", message: String, buttonTitle: String = "Dismiss", controller: UIViewController) {
+    public func displayValidationAlert(title: String = "Alert", message: String, buttonTitle: String = "Dismiss", controller: UIViewController) {
         
         presenter = controller
         
@@ -28,7 +27,7 @@ internal final class AlertManager {
         
     }
         
-    @objc func displaySuccessAlert(title: String = "Alert", message: String, buttonTitle: String = "Ok", controller: UIViewController, completionHandler: @escaping (_ data: Any) -> Void) {
+    public func displaySuccessAlert(title: String = "Alert", message: String, buttonTitle: String = "Ok", controller: UIViewController, completionHandler: @escaping (_ data: Any) -> Void) {
         
         controller.view.endEditing(true)
 
@@ -47,7 +46,7 @@ internal final class AlertManager {
         
     }
     
-    @objc func confirmationAlert(title: String = "Alert", message: String, buttonTitle: String = "Ok", controller: UIViewController, completionHandler: @escaping (_ data: Any) -> Void) {
+    public func confirmationAlert(title: String = "Alert", message: String, buttonTitle: String = "Ok", controller: UIViewController, completionHandler: @escaping (_ data: Any) -> Void) {
         
         controller.view.endEditing(true)
 
@@ -76,7 +75,7 @@ internal final class AlertManager {
         
     }
     
-    @objc func alertWithOutAction(title: String = "Warning", message: String, buttonTitle: String = "Ok", controller: UIViewController) {
+    public func alertWithOutAction(title: String = "Warning", message: String, buttonTitle: String = "Ok", controller: UIViewController) {
         
         controller.view.endEditing(true)
 
@@ -101,33 +100,16 @@ internal final class AlertManager {
     /// - Parameters:
     ///   - message: Error Message
     ///   - controller: In Which Controller Displaying
-    @objc func displayErrorMessage(message: String, controller: UIViewController) {
+    public func displayErrorMessage(message: String, controller: UIViewController) {
         
         controller.view.endEditing(true)
         
-        // create a new style
-        var style = ToastStyle()
-
-        // this is just one of many style options
-        style.messageColor = .white
-
-        // present the toast with the new style
-        controller.view.makeToast(message, duration: 3.0, position: .top, style: style)
-
-        // or perhaps you want to use this style for all toasts going forward?
-        // just set the shared style and there's no need to provide the style again
-        ToastManager.shared.style = style
-
-        // toggle "tap to dismiss" functionality
-        ToastManager.shared.isTapToDismissEnabled = true
-
-        // toggle queueing behavior
-        ToastManager.shared.isQueueEnabled = true
+        displayValidationAlert(message: message, controller: controller)
         
     }
     
     
-    @objc func shareToOthersThroughSocials(shareMessage: String, controller: UIViewController) {
+    public func shareToOthersThroughSocials(shareMessage: String, controller: UIViewController) {
         
         // text to share
         let text = shareMessage
@@ -145,7 +127,7 @@ internal final class AlertManager {
         
     }
     
-    func alertWithTextField(title: String, message: String = "", controller: UIViewController, completionHandler: @escaping (_ data: Any) -> Void) {
+    public func alertWithTextField(title: String, message: String = "", controller: UIViewController, completionHandler: @escaping (_ data: Any) -> Void) {
         
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
@@ -172,7 +154,7 @@ internal final class AlertManager {
         controller.present(ac, animated: true)
     }
     
-    func webViewPrinFormatter(webviewPrint: UIViewPrintFormatter) {
+    public func webViewPrinFormatter(webviewPrint: UIViewPrintFormatter) {
         
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = "page"
@@ -185,7 +167,7 @@ internal final class AlertManager {
         
     }
     
-    func drawRouteFromSelectedLocationToDestinationLocation(title : String, currentLocationLat: Double, currentLocationLng: Double, destinationLat : Double, destinationLng : Double, viewController: UIViewController) {
+    public func drawRouteFromSelectedLocationToDestinationLocation(title : String, currentLocationLat: Double, currentLocationLng: Double, destinationLat : Double, destinationLng : Double, viewController: UIViewController) {
 
         let lat = destinationLat //.trimmingCharacters(in: .whitespacesAndNewlines)
         let lng = destinationLng //.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -234,7 +216,7 @@ internal final class AlertManager {
         
     }
     
-    func presenActionSheet(currentLocationLat: Double, currentLocationLng: Double, destinationLat : Double, destinationLng : Double, viewController: UIViewController) {
+    public func presenActionSheet(currentLocationLat: Double, currentLocationLng: Double, destinationLat : Double, destinationLng : Double, viewController: UIViewController) {
         
         //Create the AlertController and add Its action like button in Actionsheet
         let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Please choose", message: "", preferredStyle: .actionSheet)

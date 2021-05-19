@@ -8,7 +8,6 @@ target 'common_Example' do
   pod 'IQKeyboardManagerSwift'
   pod 'MBProgressHUD'
   pod 'ReachabilitySwift', '~> 4.0'
-  pod 'Toast-Swift'
   
   target 'common_Tests' do
     inherit! :search_paths

@@ -9,24 +9,24 @@
 import Foundation
 import UIKit
 
-struct Device {
+public struct Device {
     
     // MARK: - Singletons
-    static var CurrentDevice: UIDevice {
+    public static var CurrentDevice: UIDevice {
         struct Singleton {
             static let device = UIDevice.current
         }
         return Singleton.device
     }
     
-    static var CurrentDeviceWidth: CGFloat {
+    public static var CurrentDeviceWidth: CGFloat {
         struct Singleton {
             static let width = UIScreen.main.bounds.size.width
         }
         return Singleton.width
     }
     
-    static var CurrentDeviceHeight: CGFloat {
+    public static var CurrentDeviceHeight: CGFloat {
         struct Singleton {
             static let height = UIScreen.main.bounds.size.height
         }
@@ -35,11 +35,11 @@ struct Device {
     
     // MARK: - Device Idiom Checks
     
-    static func isPhone() -> Bool {
+    public static func isPhone() -> Bool {
         return CurrentDevice.userInterfaceIdiom == .phone
     }
     
-    static func hasTopNotch() -> Bool {
+    public static func hasTopNotch() -> Bool {
         if #available(iOS 11.0, tvOS 11.0, *) {
             // with notch: 44.0 on iPhone X, XS, XS Max, XR.
             // without notch: 24.0 on iPad Pro 12.9" 3rd generation, 20.0 on iPhone 8 on iOS 12+.
@@ -49,24 +49,24 @@ struct Device {
     }
 
     // MARK: - Device Size Checks
-    enum Widths: CGFloat {
+    public enum Widths: CGFloat {
         case Inches_4 = 320
         case Inches_4_7 = 375
         case Inches_5_5 = 414
     }
     
-    enum Heights: CGFloat {
+    public enum Heights: CGFloat {
         case Inches_3_5 = 480
         case Inches_4 = 568
         case Inches_4_7 = 667
         case Inches_5_5 = 736
     }
     
-    static func isSize(height: Heights) -> Bool {
+    public static func isSize(height: Heights) -> Bool {
         return CurrentDeviceHeight == height.rawValue
     }
     
-    static var CURRENT_SIZE: String {
+    public static var CURRENT_SIZE: String {
         if IS_3_5_INCHES() {
             return "3.5 Inches"
         } else if IS_4_INCHES() {
@@ -80,37 +80,23 @@ struct Device {
     }
     
     // MARK: 3.5 Inch Checks
-    static func IS_3_5_INCHES() -> Bool {
+    public static func IS_3_5_INCHES() -> Bool {
         return isPhone() && isSize(height: .Inches_3_5)
     }
     
     // MARK: 4 Inch Checks
-    static func IS_4_INCHES() -> Bool {
+    public static func IS_4_INCHES() -> Bool {
         return isPhone() && isSize(height: .Inches_4)
     }
     
     // MARK: 4.7 Inch Checks
-    static func IS_4_7_INCHES() -> Bool {
+    public static func IS_4_7_INCHES() -> Bool {
         return isPhone() && isSize(height: .Inches_4_7)
     }
     
     // MARK: 5.5 Inch Checks
-    static func IS_5_5_INCHES() -> Bool {
+    public static func IS_5_5_INCHES() -> Bool {
         return isPhone() && isSize(height: .Inches_5_5)
     }
-    
-}
-
-
-class DeviceInfo {
-
-    static let shared = DeviceInfo()
-    
-    var deviceToken = ""
-    var deviceName = UIDevice.current.systemName
-    var isUserLogined = false
-    var SCREEN_WIDTH = UIScreen.main.bounds.size.width
-    var SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-    var deviceGuid = ""
     
 }
