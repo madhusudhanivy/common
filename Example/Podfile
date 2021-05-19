@@ -1,10 +1,15 @@
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'common_Example' do
   pod 'common', :path => '../'
 
+  pod 'IQKeyboardManagerSwift'
+  pod 'MBProgressHUD'
+  pod 'ReachabilitySwift', '~> 4.0'
+  pod 'Toast-Swift'
+  
   target 'common_Tests' do
     inherit! :search_paths
 

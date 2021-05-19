@@ -1,5 +1,4 @@
 import XCTest
-import common
 
 class Tests: XCTestCase {
     
